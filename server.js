@@ -1,10 +1,11 @@
 const net = require('net');
-const port = 80;
-var guestId = 0;
+const port = 4200;
+
+let guestId = 0;
 let sockets = [];
 
-var server = net.createServer(function(socket) {
-	// Increment
+let server = net.createServer(function(socket) {
+	// Increment user id of incoming connections
 	guestId++;
 
 	socket.nickname = "Guest_" + guestId;
@@ -16,7 +17,7 @@ var server = net.createServer(function(socket) {
 	console.log(clientName + ' joined this chat.\n');
 
 	// Welcome user to the socket
-	socket.write("Welcome to telnet chat!\n");
+	socket.write("Welcome in the saloon!\n");
 
 	// Broadcast to others excluding this socket
 	broadcast(clientName, clientName + ' joined this chat.');

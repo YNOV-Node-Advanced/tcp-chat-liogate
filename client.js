@@ -3,7 +3,7 @@ const readline = require('readline');
 
 
 var client = new net.Socket();
-client.connect(80, '127.0.0.1', function() {
+client.connect(4200, '127.0.0.1', function() {
   console.log('> Connected\n');  // acknowledge socket connection
   // client.write('Hello, server! Love, Client.\n');
   startReading();
